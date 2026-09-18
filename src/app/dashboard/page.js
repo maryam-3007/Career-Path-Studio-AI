@@ -348,9 +348,7 @@ function DashboardContent() {
                 <Download size={14} /> Export PDF
               </button>
             </div>
-            {/* The resume itself stays paper-white & dark text even in dark mode, since it is what gets printed/exported.
-               On-screen it scales to the available width; the fixed A4 dimensions only apply to the print output
-               (built separately in downloadCV via a plain <style> block), so shrinking it here doesn't affect the PDF. */}
+
             <div className="rounded-3xl border border-slate-200 bg-slate-100 p-3 sm:p-8 shadow-inner overflow-x-auto dark:border-slate-800 dark:bg-slate-900">
                <div ref={cvRef} className="mx-auto w-full max-w-[210mm] min-h-0 sm:min-h-[297mm] p-6 sm:p-16 bg-white text-slate-900 shadow-md space-y-6">
                   <h1 className="text-4xl font-black uppercase text-slate-900">{cvData.fullName || "YOUR NAME"}</h1>

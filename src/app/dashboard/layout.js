@@ -6,8 +6,7 @@ import Link from "next/link";
 import { Compass, LogOut, FileText, BarChart3, Briefcase } from "lucide-react";
 import ThemeToggle from "@/components/ThemeToggle";
 
-// useSearchParams() requires a Suspense boundary during static generation,
-// so the hook-using logic lives in an inner component wrapped below.
+
 export default function DashboardLayout({ children }) {
   return (
     <Suspense fallback={
