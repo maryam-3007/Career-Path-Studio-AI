@@ -1,36 +1,35 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Career Studio AI 🚀
 
-## Getting Started
+Career Studio AI is an AI-powered career assistance web application built with **Next.js, JavaScript, and Tailwind CSS**. It provides users with tools to explore career paths, improve their resumes, and practice for job interviews.
 
-First, run the development server:
+### ✨ Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+* 🔐 Google Authentication
+* 🧭 AI-powered Career Roadmap
+* 📄 CV Builder with Export
+* 📊 ATS Resume Checker
+* 🎤 AI Mock Interview
+* 📱 Responsive User Interface
+* ⚠️ Input Validation & Error Handling
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 🧪 Software Quality Assurance
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+The project also includes documented **SQA activities** to verify functionality, usability, and reliability.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+* Test Plan
+* Test Cases
+* Bug Reports
+* Requirements Traceability Matrix (RTM)
+* Test Summary Report
+* Testing Evidence
+* Functional, Negative, Validation, Responsive & Regression Testing
 
-## Learn More
+Issues identified during testing were documented, fixed, and retested to verify the corrections.
 
-To learn more about Next.js, take a look at the following resources:
+### 🛠️ Technologies
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**Next.js | JavaScript | React | Tailwind CSS | AI APIs | Git & GitHub**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+🌐 **Live Website:** https://career-path-studio-ai-t1fx-gilt.vercel.app/
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+📋 **SQA Documentation:** Available in the `SQA` folder of this repository.
