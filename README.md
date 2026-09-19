@@ -1,6 +1,6 @@
-Career Path Studio AI 🚀
+Career Path Studio🚀
 
-Career Path Studio AI is an AI-powered career assistance web application designed to help students and job seekers explore career paths, build better resumes, and prepare for interviews.
+Career Path Studio is an AI-powered career assistance web application designed to help students and job seekers explore career paths, build better resumes, and prepare for interviews.
 
 ✨ Features
 
