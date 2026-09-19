@@ -21,7 +21,6 @@ The project also includes documented Software Quality Assurance activities to ve
 - Bug Reports
 - Requirements Traceability Matrix (RTM)
 - Test Summary Report
-- Testing Evidence
 - Functional & Negative Testing
 - Validation Testing
 - Responsive Testing
@@ -31,7 +30,7 @@ Issues identified during testing were documented, fixed, and retested to verify 
 
 🛠️ Technologies
 
-Next.js | JavaScript | React | Tailwind CSS | AI APIs | Git & GitHub
+Next.js | JavaScript | Tailwind CSS | AI APIs | Git & GitHub
 
 🌐 Links
 
