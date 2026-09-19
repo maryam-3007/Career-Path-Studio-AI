@@ -1,35 +1,40 @@
-# Career Studio AI 🚀
+Career Path Studio AI 🚀
 
-Career Studio AI is an AI-powered career assistance web application built with **Next.js, JavaScript, and Tailwind CSS**. It provides users with tools to explore career paths, improve their resumes, and practice for job interviews.
+Career Path Studio AI is an AI-powered career assistance web application designed to help students and job seekers explore career paths, build better resumes, and prepare for interviews.
 
-### ✨ Features
+✨ Features
 
-* 🔐 Google Authentication
-* 🧭 AI-powered Career Roadmap
-* 📄 CV Builder with Export
-* 📊 ATS Resume Checker
-* 🎤 AI Mock Interview
-* 📱 Responsive User Interface
-* ⚠️ Input Validation & Error Handling
+- 🔐 Google Authentication
+- 🧭 AI-powered Career Roadmap
+- 📄 CV Builder & Export
+- 📊 ATS Resume Checker
+- 🎤 AI Mock Interview
+- 📱 Responsive User Interface
+- ⚠️ Input Validation & Error Handling
 
-### 🧪 Software Quality Assurance
+🧪 Software Quality Assurance
 
-The project also includes documented **SQA activities** to verify functionality, usability, and reliability.
+The project also includes documented Software Quality Assurance activities to verify the functionality, usability, and reliability of the application.
 
-* Test Plan
-* Test Cases
-* Bug Reports
-* Requirements Traceability Matrix (RTM)
-* Test Summary Report
-* Testing Evidence
-* Functional, Negative, Validation, Responsive & Regression Testing
+- SQA Test Plan
+- Test Cases
+- Bug Reports
+- Requirements Traceability Matrix (RTM)
+- Test Summary Report
+- Testing Evidence
+- Functional & Negative Testing
+- Validation Testing
+- Responsive Testing
+- Regression Testing
 
 Issues identified during testing were documented, fixed, and retested to verify the corrections.
 
-### 🛠️ Technologies
+🛠️ Technologies
 
-**Next.js | JavaScript | React | Tailwind CSS | AI APIs | Git & GitHub**
+Next.js | JavaScript | React | Tailwind CSS | AI APIs | Git & GitHub
 
-🌐 **Live Website:** https://career-path-studio-ai-t1fx-gilt.vercel.app/
+🌐 Links
 
-📋 **SQA Documentation:** Available in the `SQA` folder of this repository.
+Live Website: https://career-path-studio-ai-t1fx-gilt.vercel.app/
+
+SQA Documentation: Available in the "SQA" folder of this repository.
