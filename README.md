@@ -37,4 +37,4 @@ Next.js | JavaScript | React | Tailwind CSS | AI APIs | Git & GitHub
 
 Live Website: https://career-path-studio-ai-t1fx-gilt.vercel.app/
 
-SQA Documentation: Available in the "SQA" folder of this repository.
+SQA Documentation: Available in the Repository 
