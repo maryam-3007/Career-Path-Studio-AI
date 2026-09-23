@@ -1,6 +1,11 @@
 import { NextResponse } from "next/server";
 import { PDFParse } from "pdf-parse";
 
+// Give this route up to 60 seconds to run (PDF parsing + the Gemini call
+// can take longer than Vercel's default 10s limit, which causes the
+// "Unexpected token '<'" error on the frontend).
+export const maxDuration = 60;
+
 const GEMINI_MODEL = "gemini-2.5-flash";
 const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent`;
 
