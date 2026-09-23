@@ -7,65 +7,42 @@ import {
 
 export default function AtsChecker() {
   const [file, setFile] = useState(null);
+  const [role, setRole] = useState("");
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [report, setReport] = useState(null);
+  const [error, setError] = useState(null);
   const fileInputRef = useRef(null);
 
   const handleFileChange = (e) => {
     if (e.target.files && e.target.files[0]) {
       setFile(e.target.files[0]);
-      setReport(null); 
+      setReport(null);
+      setError(null);
     }
   };
 
-  const runAtsAnalysis = () => {
-    if (!file) return;
+  const runAtsAnalysis = async () => {
+    if (!file || isAnalyzing) return;
     setIsAnalyzing(true);
     setReport(null);
+    setError(null);
 
-    setTimeout(() => {
-      setReport({
-        score: 78,
-        matchCategory: "Competitive",
-        metadata: {
-          words: 482,
-          readingTime: "2.1 min",
-          fileType: "PDF Binary",
-          scannability: "Medium-Risk"
-        },
-        breakdown: [
-          {
-            title: "File Architecture & Formatting",
-            status: "warning",
-            description: "How well automated parsing machines can map your layout fields cleanly.",
-            items: [
-              { type: "success", text: "Standard contact schemas (Email, Phone, LinkedIn) parsed flawlessly at root level." },
-              { type: "warning", text: "Multi-column layout structure detected. Standard legacy scanners may misread line orders chronologically." },
-              { type: "critical", text: "Unrecognized table/graphic block encapsulating 'Technical Milestones'. Content inside graphics is invisible to standard ATS string matchers." }
-            ]
-          },
-          {
-            title: "Impact, Metrics & Action Verbs",
-            status: "critical",
-            description: "Evaluating strong semantic achievements instead of passive task descriptions.",
-            items: [
-              { type: "success", text: "Excellent utilization of authoritative action words (e.g., 'Architected', 'Optimized', 'Deployed')." },
-              { type: "critical", text: "Weak hard metric density. Only 2 bullet points contain quantifiable numbers ($ or % metrics). Systems rank data-backed results higher." },
-              { type: "warning", text: "Vague project summaries. Expand 'Responsible for application bug fixes' into a result-driven asset statement." }
-            ]
-          }
-        ],
-        skillsMatrix: [
-          { name: "React / Next.js Frameworks", found: true, category: "Frontend" },
-          { name: "Tailwind CSS Architecture", found: true, category: "Design" },
-          { name: "Node.js & REST API Systems", found: true, category: "Backend" },
-          { name: "TypeScript Strict Structuring", found: false, category: "Frontend" },
-          { name: "AWS Cloud Infrastructure (S3/EC2)", found: false, category: "DevOps" },
-          { name: "CI/CD Pipeline Automation", found: false, category: "DevOps" },
-        ]
-      });
+    try {
+      const formData = new FormData();
+      formData.append("file", file);
+      if (role.trim()) formData.append("role", role.trim());
+
+      const res = await fetch("/api/check-ats", { method: "POST", body: formData });
+      const data = await res.json();
+
+      if (!res.ok) throw new Error(data?.error || "Failed to analyze this resume.");
+
+      setReport(data);
+    } catch (err) {
+      setError(err.message || "Something went wrong analyzing this resume.");
+    } finally {
       setIsAnalyzing(false);
-    }, 2200);
+    }
   };
 
   return (
@@ -91,7 +68,14 @@ export default function AtsChecker() {
         <div className="lg:col-span-4">
           <div className="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm backdrop-blur-sm sticky top-28 dark:bg-slate-900 dark:border-slate-800">
             <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-4 dark:text-slate-500">Pipeline Blueprint</h3>
-            
+
+            <input
+              value={role}
+              onChange={(e) => setRole(e.target.value)}
+              placeholder="Target role (optional, e.g. Frontend Developer)"
+              className="w-full mb-4 rounded-xl border border-slate-200 p-3 text-xs dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 dark:placeholder:text-slate-500"
+            />
+
             <div 
               onClick={() => fileInputRef.current?.click()}
               className={`group border-2 border-dashed rounded-xl p-8 text-center cursor-pointer transition-all ${
@@ -116,6 +100,10 @@ export default function AtsChecker() {
                   <><RefreshCw className="animate-spin" size={15} /> Processing Matrix...</>
                 ) : "Execute Deep Scan"}
               </button>
+            )}
+
+            {error && (
+              <p className="mt-4 text-xs font-medium text-rose-600 dark:text-rose-400">{error}</p>
             )}
           </div>
         </div>
@@ -162,7 +150,7 @@ export default function AtsChecker() {
                     </div>
                     <h3 className="text-base font-bold">Executive Compliance Summary</h3>
                     <p className="text-xs text-slate-300 font-light leading-relaxed max-w-md">
-                      Your document has clear contact arrays but faces parse data dropped blocks within secondary column layers.
+                      {report.summary || "Analysis complete — review the breakdown below for details."}
                     </p>
                   </div>
                 </div>
