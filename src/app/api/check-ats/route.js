@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { PDFParse } from "pdf-parse";
+import { extractText, getDocumentProxy } from "unpdf";
 
 // Give this route up to 60 seconds to run (PDF parsing + the Gemini call
 // can take longer than Vercel's default 10s limit, which causes the
@@ -60,9 +60,9 @@ export async function POST(req) {
     }
 
     const buffer = Buffer.from(await file.arrayBuffer());
-    const parser = new PDFParse({ data: buffer });
-    const pdfData = await parser.getText();
-    const resumeText = (pdfData.text || "").trim();
+    const pdf = await getDocumentProxy(new Uint8Array(buffer));
+    const { text } = await extractText(pdf, { mergePages: true });
+    const resumeText = (text || "").trim();
 
     if (resumeText.length < 30) {
       return NextResponse.json(
